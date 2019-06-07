@@ -1,0 +1,31 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        '''
+        思路总结，start: digits[-1]+a+1判断是否为10，本身=0，是的话进位标志+1，否略
+        ~
+        进入循环~直到list结束，判断最后进位位的值，是1，插入一个1在list[0]
+    
+        '''
+        size = len(digits)
+        s = 0
+        if digits[-1]+s+1>9:
+            digits[-1]=0
+            s = 1
+        else:
+            s = 0
+            digits[-1]+=(s+1)
+        for i in reversed(range(size-1)):
+            if digits[i]+s>9:
+                s = 1
+                digits[i] = 0
+            else:
+                digits[i]+=s
+                s = 0
+             
+        if s==1:
+            digits.insert(0, 1)
+        return digits
+        ~1\  s=0 和 digits[i]+=s是有先后顺序的
+        ~2\  写一个变量变化时，要写s1->s2,表示变化
+        因为变量变化前后是不同的，可以避免这种问题的出现。
+        
