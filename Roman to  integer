@@ -74,3 +74,8 @@ class Solution:
             return 1000
         else:
             return "wrong"
+1\  range(begin, stop, [,step])
+返回结果是一个迭代器，
+2\  算法和逻辑确定时，码好代码即可
+
+
